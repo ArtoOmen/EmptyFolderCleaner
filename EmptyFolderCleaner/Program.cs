@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace EmptyFolderCleaner
 {
@@ -12,11 +11,11 @@ namespace EmptyFolderCleaner
             var path = Environment.CurrentDirectory;
             Console.WriteLine(path);
 
-            if (args.Any(a => a.Equals("-test", StringComparison.OrdinalIgnoreCase))) 
-            { 
+            if (Array.IndexOf(args, "-test") > -1) 
+            {
                 //Если в агрументах прописан ключ "-test".
                 CreateTestDirectories(path);
-                return; 
+                return;
             }
 
             var emptyDirectories = new List<string>();
